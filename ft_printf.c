@@ -3,40 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:51:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/08 13:37:31 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/09 20:34:27 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-unsigned int count_args(const char *s)
-{
-	int count;
-	char *ptr;
-
-	count = 0;
-	ptr = (char *) s;
-	while (*ptr)
-	{
-		if (*ptr == '%' && *(ptr + 1) == '%')
-			count++;
-		ptr++;
-	}
-	return (count);
-}
-
 void	ft_printf(const char *s, ...)
 {
-	//va_list lst;
-	unsigned int argc;
-	(void) s;
+	void 	(*map[128])(va_list);
+	char	*src;
+	int		flag;
+	va_list	args;
 
-	argc = count_args(s);
-	//va_start(lst);
-	printf("Received %d arguments\n", argc);
-	//va_end(lst);
+	src = (char *) s;
+	map[105] = ft_puti;
+	map[115] = ft_puts;
+	map[37] = ft_putpercente;
+	map[120] = ft_putx;
+	map[88] = ft_putX;
+	va_start(args, s);
+	flag = 0;
+	while(*src)
+	{
+		if (flag == 1)
+		{
+			(*map[(int) *src])(args);
+			flag = 0;
+		}
+		else if (flag == 0)
+		{
+			if (*src == '%')
+				flag = 1;
+			else
+				write(1, src, 1);
+		}
+		src++;
+	}
+	va_end(args);
 }

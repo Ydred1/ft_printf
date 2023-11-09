@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 12:52:32 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/09 20:30:30 by ydred            ###   ########.fr       */
+/*   Created: 2023/11/09 19:34:19 by ydred             #+#    #+#             */
+/*   Updated: 2023/11/09 19:43:22 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+static int	ft_strlen(char *src)
+{
+	int i;
 
-void	ft_printf(const char *, ...);
-void	ft_puti(va_list);
-void	ft_putpercente(va_list);
-void	ft_puts(va_list);
-void	ft_putx(va_list);
-void	ft_putX(va_list);
-void	ft_putbase16(int, char *);
+	i = 0;
+	while (src[i])
+		i++;
+	return (i);
+}
 
-#endif
+void	ft_puts(va_list args)
+{
+	char	*string;
+
+	string = va_arg(args, char *);
+	write(1, string, ft_strlen(string));
+}

@@ -4,7 +4,12 @@ CFLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 
-SOURCES = ft_printf.c
+SOURCES = 	ft_printf.c			\
+			ft_puti.c			\
+			ft_putpercente.c	\
+			ft_puts.c			\
+			ft_putx.c			\
+			ft_putX.c
 
 OBJS = $(SOURCES:.c=.o)
 
