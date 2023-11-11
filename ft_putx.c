@@ -6,13 +6,13 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:37:45 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 11:34:59 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:44:15 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
- void	ft_putbase16(int n, char *base)
+void	ft_putbase16(int n, char *base)
 {
 	char	c[9];
 	int		i;
@@ -39,9 +39,9 @@
 		write(1, &c[i], 1);
 }
 
-void	ft_putx(va_list args)
+void	ft_putxlower(va_list args)
 {
-	int nbr;
+	int	nbr;
 
 	nbr = va_arg(args, int);
 	ft_putbase16(nbr, "0123456789abcdef");

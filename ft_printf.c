@@ -6,33 +6,38 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:51:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/11 12:38:17 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:53:59 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
+static void	init(t_func *func, int *flag)
+{
+	func['i'] = ft_puti;
+	func['s'] = ft_puts;
+	func['%'] = ft_putpercente;
+	func['x'] = ft_putxlower;
+	func['X'] = ft_putxupper;
+	func['c'] = ft_putc;
+	func['p'] = ft_putp;
+	func['d'] = ft_puti;
+	func['u'] = ft_putu;
+	*flag = 0;
+}
+
 void	ft_printf(const char *s, ...)
 {
-	void 	(*func[128])(va_list);
+	t_func	func[128];
 	char	*src;
 	int		flag;
 	va_list	args;
 
 	src = (char *) s;
-	func['i'] = ft_puti;
-	func['s'] = ft_puts;
-	func['%'] = ft_putpercente;
-	func['x'] = ft_putx;
-	func['X'] = ft_putX;
-	func['c'] = ft_putc;
-	func['p'] = ft_putp;
-	func['d'] = ft_puti;
-	func['u'] = ft_putu;
+	init(func, &flag);
 	va_start(args, s);
-	flag = 0;
-	while(*src)
+	while (*src)
 	{
 		if (flag == 1)
 		{

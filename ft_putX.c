@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putX.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:38:17 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/09 20:29:49 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/11 13:43:51 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putX(va_list args)
+void	ft_putxupper(va_list args)
 {
-	int nbr;
+	int	nbr;
 
 	nbr = va_arg(args, int);
 	ft_putbase16(nbr, "0123456789ABCDEF");
