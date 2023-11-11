@@ -11,7 +11,8 @@ SOURCES = 	ft_printf.c			\
 			ft_putx.c			\
 			ft_putX.c			\
 			ft_putc.c			\
-			ft_putp.c
+			ft_putp.c			\
+			ft_putu.c
 
 OBJS = $(SOURCES:.c=.o)
 

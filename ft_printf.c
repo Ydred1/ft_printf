@@ -6,7 +6,7 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:51:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/11 11:59:54 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 12:38:17 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ void	ft_printf(const char *s, ...)
 	va_list	args;
 
 	src = (char *) s;
-	func[105] = ft_puti;
-	func[115] = ft_puts;
-	func[37] = ft_putpercente;
-	func[120] = ft_putx;
-	func[88] = ft_putX;
-	func[99] = ft_putc;
-	func[112] = ft_putp;
+	func['i'] = ft_puti;
+	func['s'] = ft_puts;
+	func['%'] = ft_putpercente;
+	func['x'] = ft_putx;
+	func['X'] = ft_putX;
+	func['c'] = ft_putc;
+	func['p'] = ft_putp;
+	func['d'] = ft_puti;
+	func['u'] = ft_putu;
 	va_start(args, s);
 	flag = 0;
 	while(*src)
