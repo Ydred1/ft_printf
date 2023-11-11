@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstwritecontent.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 03:47:39 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/12 00:19:49 by ydred            ###   ########.fr       */
+/*   Created: 2023/11/11 23:00:17 by ydred             #+#    #+#             */
+/*   Updated: 2023/11/11 23:36:42 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstwritecontent(t_list **lst, int fd)
 {
 	t_list	*current;
-	t_list	*next;
+	char	*fullstr;
+	int		fulllen;
+	(void) fd;
+	(void) lst;
 
+	current = *lst;
+	fulllen = 0;
+	while (current)
+	{
+		fulllen += ft_strlen((char *) current->content);
+		current = current->next;
+	}
+	fullstr = (char *) malloc((fulllen + 1) * sizeof(char));
+	ft_memset(fullstr, 0, fulllen + 1);
 	current = *lst;
 	while (current)
 	{
-		next = current->next;
-		ft_lstdelone(current, del);
-		current = next;
+		ft_strlcat(fullstr, (char *) current->content, fulllen + 1);
+		current = current->next;
 	}
-	*lst = NULL;
+	write(fd, fullstr, fulllen + 1);
+	free(fullstr);
 }

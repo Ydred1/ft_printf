@@ -4,17 +4,17 @@ LIBFT 	= ./lib/libft/
 
 SRC_DIR =	./src/
 SRC_FIL =				\
-	ft_printf.c			\
-	ft_puti.c			\
-	ft_putpercente.c	\
-	ft_puts.c			\
-	ft_putx.c			\
-	ft_putX.c			\
-	ft_putc.c			\
-	ft_putp.c			\
-	ft_putu.c
+	ft_printf			\
+	ft_puti			\
+	ft_putpercente	\
+	ft_puts			\
+	ft_putx			\
+	ft_putX			\
+	ft_putc			\
+	ft_putp			\
+	ft_putu
 SRCS = $(addsuffix .c, $(addprefix $(SRC_DIR), $(SRC_FIL)))
-OBJS = $(SOURCES:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
@@ -23,7 +23,7 @@ RM = @rm -f
 OBJ_COLOR	= "\e[38;5;147m"
 CLN_COLOR	= "\e[38:5:124m"
 BIN_COLOR	= "\e[38;5;129m"
-ERASE_LINE = "\e[2K\r"
+ERASE_LINE  = "\e[2K\r"
 
 all: $(NAME)
 
@@ -35,7 +35,7 @@ $(NAME): $(OBJS) $(LIBFT)libft.a
 $(LIBFT)libft.a:
 	@$(MAKE) -C $(LIBFT)
 
-%.o: %.c
+%.o:%.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
 	@printf $(ERASE_LINE)$(OBJ_COLOR)"\t"$@"\e[0m"
 

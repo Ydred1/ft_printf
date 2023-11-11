@@ -20,16 +20,17 @@ FT_CHAR_SRC =	\
 	$(addsuffix .c, $(addprefix $(FT_CHAR_DIR), $(FT_CHAR_FIL)))
 
 FT_LIST_DIR = src/ft_list/
-FT_LIST_FIL =		\
-	ft_lstadd_back	\
-	ft_lstadd_front	\
-	ft_lstclear		\
-	ft_lstdelone	\
-	ft_lstiter		\
-	ft_lstlast		\
-	ft_lstmap		\
-	ft_lstnew		\
-	ft_lstsize
+FT_LIST_FIL =			\
+	ft_lstadd_back		\
+	ft_lstadd_front		\
+	ft_lstclear			\
+	ft_lstdelone		\
+	ft_lstiter			\
+	ft_lstlast			\
+	ft_lstmap			\
+	ft_lstnew			\
+	ft_lstsize			\
+	ft_lstwritecontent
 FT_LIST_SRC =	\
 	$(addsuffix .c, $(addprefix $(FT_LIST_DIR), $(FT_LIST_FIL)))
 
