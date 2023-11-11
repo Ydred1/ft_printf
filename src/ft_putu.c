@@ -3,30 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putu.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:37:10 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 12:50:20 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 22:59:07 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	ft_putu(va_list args)
+char	*ft_putu(va_list args)
 {
-	char			c[9];
+	char			c[11];
 	int				i;
 	unsigned int	nbr;
 
-	i = 8;
+	i = 10;
+	ft_memset(c, ' ', 11);
 	nbr = va_arg(args, unsigned int);
+	c[i--] = '\0';
+	c[i] = '0';
 	while (nbr > 1)
 	{
 		c[i] = nbr % 10 + 48;
 		nbr /= 10;
 		i--;
 	}
-	c[i] = '\0';
-	while (++i <= 8)
-		write(1, &c[i], 1);
+	return (ft_strtrim(c, " "));
 }

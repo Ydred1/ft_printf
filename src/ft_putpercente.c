@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpercente.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:16:46 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 13:55:59 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 22:15:23 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	ft_putpercente(va_list args)
+char	*ft_putpercente(va_list args)
 {
 	if (args)
-		write(1, "%", 1);
+		return ("%\n");
+	return (NULL);
 }

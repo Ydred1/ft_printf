@@ -3,39 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puti.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:41:56 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 13:56:14 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 21:58:09 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
+#include <stdio.h>
 
-void	ft_puti(va_list args)
+char	*ft_puti(va_list args)
 {
-	char	c;
+	char	c[11];
 	int		n;
-	int		digit;
+	int 	i;
 
 	n = va_arg(args, int);
-	digit = 1000000000;
-	if (n != 0)
+	i = 9;
+	ft_memset(c, ' ', 11);
+	c[i] = '0';
+	while (n > 1)
 	{
-		while (n / digit % 10 == 0)
-			digit /= 10;
-		if (n < 0)
-			write(1, (char *) "-", 1);
-		while (digit >= 1)
-		{
-			if (n < 0)
-				c = ((n / digit % 10) * -1) + 48;
-			else
-				c = (n / digit % 10) + 48;
-			digit /= 10;
-			write(1, &c, 1);
-		}
+		c[i] = n % 10 + 48;
+		n /= 10;
+		i--;
 	}
-	else
-		write(1, "0", 1);
+	return (ft_strtrim(c, " "));
 }
