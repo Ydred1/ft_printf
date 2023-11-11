@@ -9,7 +9,9 @@ SOURCES = 	ft_printf.c			\
 			ft_putpercente.c	\
 			ft_puts.c			\
 			ft_putx.c			\
-			ft_putX.c
+			ft_putX.c			\
+			ft_putc.c			\
+			ft_putp.c
 
 OBJS = $(SOURCES:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:33:24 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/09 19:33:45 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/11 11:31:51 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_putc(va_list args)
 {
-	
+	char	c;
+
+	c = va_arg(args, int);
+	write(1, &c, 1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:52:32 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/09 20:30:30 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/11 11:59:36 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ void	ft_puts(va_list);
 void	ft_putx(va_list);
 void	ft_putX(va_list);
 void	ft_putbase16(int, char *);
+void	ft_putc(va_list);
+void	ft_putp(va_list);
 
 #endif

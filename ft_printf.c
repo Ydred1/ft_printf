@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:51:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/09 20:34:27 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/11 11:59:54 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 
 void	ft_printf(const char *s, ...)
 {
-	void 	(*map[128])(va_list);
+	void 	(*func[128])(va_list);
 	char	*src;
 	int		flag;
 	va_list	args;
 
 	src = (char *) s;
-	map[105] = ft_puti;
-	map[115] = ft_puts;
-	map[37] = ft_putpercente;
-	map[120] = ft_putx;
-	map[88] = ft_putX;
+	func[105] = ft_puti;
+	func[115] = ft_puts;
+	func[37] = ft_putpercente;
+	func[120] = ft_putx;
+	func[88] = ft_putX;
+	func[99] = ft_putc;
+	func[112] = ft_putp;
 	va_start(args, s);
 	flag = 0;
 	while(*src)
 	{
 		if (flag == 1)
 		{
-			(*map[(int) *src])(args);
+			(*func[(int) *src])(args);
 			flag = 0;
 		}
 		else if (flag == 0)
