@@ -6,7 +6,7 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:38:17 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 13:43:51 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 14:02:30 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 void	ft_putxupper(va_list args)
 {
-	int	nbr;
-
-	nbr = va_arg(args, int);
-	ft_putbase16(nbr, "0123456789ABCDEF");
+	ft_putbase16(va_arg(args, unsigned int), "0123456789ABCDEF");
 }

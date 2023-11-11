@@ -6,7 +6,7 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:52:32 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/11 13:57:56 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/11 14:01:53 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putpercente(va_list args);
 void	ft_puts(va_list args);
 void	ft_putxlower(va_list args);
 void	ft_putxupper(va_list args);
-void	ft_putbase16(int nbr, char *base);
+void	ft_putbase16(int unsigned nbr, char *base);
 void	ft_putc(va_list args);
 void	ft_putp(va_list args);
 void	ft_putu(va_list args);
