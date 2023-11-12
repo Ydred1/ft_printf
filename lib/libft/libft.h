@@ -6,7 +6,7 @@
 /*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:44:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/11 23:13:21 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 03:10:05 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void	ft_lstwritecontent(t_list **lst, int fd);
+int		ft_lstwritecontent(t_list **lst, int fd);
 
 #endif

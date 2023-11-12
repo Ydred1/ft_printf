@@ -6,19 +6,17 @@
 /*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 23:00:17 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 23:36:42 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 03:21:20 by ydred            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-void	ft_lstwritecontent(t_list **lst, int fd)
+int	ft_lstwritecontent(t_list **lst, int fd)
 {
 	t_list	*current;
 	char	*fullstr;
 	int		fulllen;
-	(void) fd;
-	(void) lst;
 
 	current = *lst;
 	fulllen = 0;
@@ -28,6 +26,8 @@ void	ft_lstwritecontent(t_list **lst, int fd)
 		current = current->next;
 	}
 	fullstr = (char *) malloc((fulllen + 1) * sizeof(char));
+	if (!fullstr)
+		return (0);
 	ft_memset(fullstr, 0, fulllen + 1);
 	current = *lst;
 	while (current)
@@ -37,4 +37,5 @@ void	ft_lstwritecontent(t_list **lst, int fd)
 	}
 	write(fd, fullstr, fulllen + 1);
 	free(fullstr);
+	return (fulllen);
 }
