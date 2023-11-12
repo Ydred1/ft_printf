@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:35:12 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 22:14:56 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 13:59:24 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*ft_writepointer(void *ptr, char *base)
 		return (ft_strtrim(c, " "));
 	}
 	else
-		return ("0x0");
+		return (ft_strdup("0x0"));
 }
 
 char	*ft_putp(va_list args)

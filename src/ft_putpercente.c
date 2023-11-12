@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpercente.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:16:46 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 22:15:23 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 13:32:43 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 char	*ft_putpercente(va_list args)
 {
 	if (args)
-		return ("%\n");
+		return (ft_strdup("%\0"));
 	return (NULL);
 }
