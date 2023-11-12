@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:52:32 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/11 20:28:55 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 18:30:14 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@
 
 typedef char	*(*t_func)(va_list);
 
-int	ft_printf(const char *s, ...);
+// typedef static struct s_content
+// {
+// 	void *content;
+// 	int	len;
+// } t_content;
+
+int		ft_printf(const char *s, ...);
 char	*ft_puti(va_list args);
 char	*ft_putpercente(va_list args);
 char	*ft_puts(va_list args);

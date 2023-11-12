@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:37:45 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 22:24:12 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 18:31:58 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 char	*ft_putbase16(unsigned int n, char *base)
 {
-	char	c[8];
-	int		i;
-	int		nbr;
+	char			c[9];
+	int				i;
+	unsigned int	nbr;
 
-	i = 6;
+	i = 8;
 	ft_memset(c, ' ', 8);
+	c[i--] = '\0';
 	c[i] = '0';
 	nbr = n;
 	while (nbr > 1)
@@ -28,12 +29,10 @@ char	*ft_putbase16(unsigned int n, char *base)
 		nbr /= 16;
 		i--;
 	}
-	c[i--] = 'x';
-	c[i--] = '0';
 	return (ft_strtrim(c, " "));
 }
 
 char	*ft_putxlower(va_list args)
 {
-	return(ft_putbase16(va_arg(args, unsigned int), "0123456789abcdef"));
+	return (ft_putbase16(va_arg(args, unsigned int), "0123456789abcdef"));
 }

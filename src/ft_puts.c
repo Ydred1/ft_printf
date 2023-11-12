@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:34:19 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/12 00:16:24 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 18:32:24 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char	*ft_puts(va_list args)
 {
 	char	*string;
 
-	string = (char *)va_arg(args,const char *);
+	string = (char *)va_arg(args, const char *);
 	if (!string)
-		return (ft_strdup("nil"));
+		return (ft_strdup("(null)"));
 	return (ft_strdup(string));
 }

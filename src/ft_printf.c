@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:51:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/12 00:18:18 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/12 18:21:03 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 #include <stdio.h>
 
-static void	init(t_func *func, int *flag)
+static void	init(t_func *func, int *flag, char **src, const char *s)
 {
 	func['i'] = ft_puti;
 	func['s'] = ft_puts;
@@ -24,37 +24,36 @@ static void	init(t_func *func, int *flag)
 	func['p'] = ft_putp;
 	func['d'] = ft_puti;
 	func['u'] = ft_putu;
+	*src = (char *)(s - 1);
 	*flag = 0;
 }
 
-static int new_elemfunc(t_list **lst, t_func func, va_list args)
-{
-	char	*string;
-	t_list	*elem;
-
-	string = func(args);
-	elem = ft_lstnew(string);
-	if (!string || !elem)
-		return (0);
-	ft_lstadd_back(lst, elem);
-	return (1);
-}
-
-static int new_elem(t_list **lst, const char *s)
+static char	*new_elem(t_list **lst, t_func func, va_list args, char *s)
 {
 	int		i;
 	char	*string;
 	t_list	*elem;
 
 	i = 0;
-	while (s[i] != '%' && s[i])
-		i++;
-	string = ft_substr(s, 0, i);
+	if (func == NULL)
+	{
+		while (s[i] != '%' && s[i])
+			i++;
+		string = ft_substr(s, 0, i);
+	}
+	else
+		string = func(args);
 	elem = ft_lstnew(string);
 	if (!string || !elem)
 		return (0);
 	ft_lstadd_back(lst, elem);
-	return (i);
+	return (s + i - 1);
+}
+
+static int	ft_failedmalloc(t_list *lst)
+{
+	ft_lstclear(&lst, free);
+	return (0);
 }
 
 int	ft_printf(const char *s, ...)
@@ -64,42 +63,24 @@ int	ft_printf(const char *s, ...)
 	int		flag;
 	va_list	args;
 	t_list	*lst;
-	
-	src = (char *) s;
-	init(func, &flag);
+
+	init(func, &flag, &src, s);
 	va_start(args, s);
 	lst = NULL;
-	while (*src)
+	while (*(++src))
 	{
-		if (flag == 1)
+		if (*src++ != '%')
 		{
-			if (new_elemfunc(&lst, *func[(int) *src], args) == 0)
-			{
-				ft_lstclear(&lst, free);
-				return (0);
-			}
-			flag = 0;
+			src = new_elem(&lst, NULL, args, --src);
+			if (!src)
+				return (ft_failedmalloc(lst));
 		}
-		else if (flag == 0)
-		{
-			if (*src != '%')
-			{
-				flag = new_elem(&lst, src);
-				if (!flag)
-				{
-					ft_lstclear(&lst, free);
-					return (0);
-				}
-				src += flag - 1;
-				flag = 0;
-			}
-			else
-				flag = 1;
-		}
-		src++;
+		else
+			if (new_elem(&lst, func[(int) *src], args, src) == 0)
+				return (ft_failedmalloc(lst));
 	}
 	va_end(args);
-	ft_lstwritecontent(&lst, 1);
+	flag = ft_lstwritecontent(&lst, 1);
 	ft_lstclear(&lst, free);
-	return (1);
+	return (flag);
 }
