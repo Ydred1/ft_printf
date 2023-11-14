@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putu.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ydred <ydred@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:37:10 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/11 22:59:07 by ydred            ###   ########.fr       */
+/*   Updated: 2023/11/14 14:22:25 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_putu(va_list args)
 {
 	char			c[11];
-	int				i;
+	unsigned int	i;
 	unsigned int	nbr;
 
 	i = 10;
@@ -23,7 +23,7 @@ char	*ft_putu(va_list args)
 	nbr = va_arg(args, unsigned int);
 	c[i--] = '\0';
 	c[i] = '0';
-	while (nbr > 1)
+	while (nbr >= 1)
 	{
 		c[i] = nbr % 10 + 48;
 		nbr /= 10;

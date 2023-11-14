@@ -6,7 +6,7 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:35:12 by ydred             #+#    #+#             */
-/*   Updated: 2023/11/12 13:59:24 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:53:17 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*ft_writepointer(void *ptr, char *base)
 		return (ft_strtrim(c, " "));
 	}
 	else
-		return (ft_strdup("0x0"));
+		return (ft_strdup("(nil)"));
 }
 
 char	*ft_putp(va_list args)
