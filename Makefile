@@ -3,13 +3,13 @@ NAME = libftprintf.a
 LIBFT 	= ./lib/libft/
 
 SRC_DIR =	./src/
-SRC_FIL =				\
-	ft_printf			\
+SRC_FIL =			\
+	ft_printf		\
 	ft_puti			\
 	ft_putpercente	\
 	ft_puts			\
-	ft_putx			\
-	ft_putX			\
+	ft_putxlower	\
+	ft_putxupper	\
 	ft_putc			\
 	ft_putp			\
 	ft_putu
