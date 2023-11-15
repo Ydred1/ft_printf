@@ -6,7 +6,7 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:51:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/12 18:21:03 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:50:38 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 static void	init(t_func *func, int *flag, char **src, const char *s)
 {
+	unsigned int	i;
+
+	i = 0;
+	while (i < 128)
+		func[i++] = NULL;
 	func['i'] = ft_puti;
 	func['s'] = ft_puts;
 	func['%'] = ft_putpercente;
