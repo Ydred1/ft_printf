@@ -6,7 +6,7 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:51:23 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/15 12:50:38 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:16:47 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	init(t_func *func, int *flag, char **src, const char *s)
 	unsigned int	i;
 
 	i = 0;
-	while (i < 128)
+	while (i < 256)
 		func[i++] = NULL;
 	func['i'] = ft_puti;
 	func['s'] = ft_puts;
@@ -63,7 +63,7 @@ static int	ft_failedmalloc(t_list *lst)
 
 int	ft_printf(const char *s, ...)
 {
-	t_func	func[128];
+	t_func	func[256];
 	char	*src;
 	int		flag;
 	va_list	args;
@@ -81,7 +81,7 @@ int	ft_printf(const char *s, ...)
 				return (ft_failedmalloc(lst));
 		}
 		else
-			if (new_elem(&lst, func[(int) *src], args, src) == 0)
+			if (new_elem(&lst, func[(unsigned char) *src], args, src) == 0)
 				return (ft_failedmalloc(lst));
 	}
 	va_end(args);
