@@ -6,7 +6,7 @@
 /*   By: nmillier <nmillier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:02:58 by nmillier          #+#    #+#             */
-/*   Updated: 2023/11/14 15:06:15 by nmillier         ###   ########.fr       */
+/*   Updated: 2023/11/19 16:46:16 by nmillier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	main()
 	ft_printf("------------------------------------------\n");
 	ft_printf("%%%% option ↴\n\tmany\t→\t%%%%%%%%%%\n");
 	ft_printf("------------------------------------------\n");
-	printf("%%X option ↴\n\thexa\t→\t%X\n\tMAX\t→\t%X\n\tMIN\t→\t%X\n\tZERO\t→%X\n", 2320981, INT_MAX, INT_MIN, 0);
+	ft_printf("Null option ↴\n\ttests\t→\t %e%t%f%m");
 	return (0);
 }
