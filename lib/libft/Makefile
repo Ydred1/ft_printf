@@ -84,7 +84,7 @@ SRCS =					\
 
 OBJS = $(SRCS:.c=.o)
 
-CC 			= @gcc
+CC 			= @cc
 RM 			= @rm -rf
 CFLAGS 		= -Wall -Wextra -Werror
 

@@ -17,7 +17,7 @@ SRCS = $(addsuffix .c, $(addprefix $(SRC_DIR), $(SRC_FIL)))
 OBJS = $(SRCS:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
-CC = gcc
+CC = cc
 RM = @rm -f
 
 OBJ_COLOR	= "\e[38;5;147m"
